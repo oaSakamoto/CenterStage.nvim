@@ -12,7 +12,7 @@
 
 CenterStage is a plugin that keeps your screen with the cursor centered vertically, this implementation is new, so there are integrations and other behaviors that can generate bugs, if you find something, open an issue or a pull request.
 
-⇁ The Problems
+## ⇁ The Problems
 1. I like my buffer to be centered, the native way of neovim and setting vim.opt.scrolloff=999, but it has a behavior that I don't like, that when reaching the end of the file the cursor does not remain centered vertically.
 
 ## ⇁ The Solutions
