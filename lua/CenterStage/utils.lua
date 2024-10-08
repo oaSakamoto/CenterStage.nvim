@@ -4,7 +4,7 @@ local M = {}
 
 local function is_disable(bufnr)
     local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-    for _ , disable in ipairs(config.options.disble_for_ft) do
+    for _ , disable in ipairs(config.options.disable_for_ft) do
         if filetype == disable then
             return true
         end
