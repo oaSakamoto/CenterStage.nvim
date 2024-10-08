@@ -30,7 +30,8 @@ local function center_cursor()
     if is_disabled(bufnr) then return end
 
     local window = vim.api.nvim_get_current_win()
-    local cursor_line = vim.api.nvim_win_get_cursor(window)[1]
+    local cursor = vim.api.nvim_win_get_cursor(window)
+    local cursor_line, cursor_col = cursor[1], cursor[2]
     local window_height = vim.api.nvim_win_get_height(window)
     local buffer_line_count = vim.api.nvim_buf_line_count(bufnr)
     local middle_line = math.floor(window_height / 2)
@@ -51,11 +52,10 @@ local function center_cursor()
         if view.topline ~= ideal_top then
             view.topline = ideal_top
             vim.fn.winrestview(view)
-            vim.api.nvim_win_set_cursor(window, {cursor_line, 0})
+            vim.api.nvim_win_set_cursor(window, {cursor_line, cursor_col})
         end
+        vim.opt_local.scrolloff = 999
     end
-
-    vim.opt_local.scrolloff = 999
 end
 
 function M.create_autocmd()
