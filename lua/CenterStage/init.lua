@@ -5,7 +5,7 @@ local M = {}
 
 function M.setup(opts)
     config.setup(opts)
-    utils.create_autocmds()
+    utils.create_autocmd()
 end
 
 return M
