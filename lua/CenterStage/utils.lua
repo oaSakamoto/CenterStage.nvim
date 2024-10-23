@@ -38,6 +38,8 @@ local function center_cursor()
 
     clear_phantom_lines(bufnr)
 
+    vim.api.nvim_win_set_cursor(window, {cursor_line, cursor_col})
+
     if buffer_line_count - cursor_line < middle_line then
         vim.opt_local.scrolloff = 0
         local phantom_lines_needed = math.max(0, middle_line - (buffer_line_count - cursor_line))
