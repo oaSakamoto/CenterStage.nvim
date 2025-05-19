@@ -42,7 +42,17 @@ local function add_phantom_lines(bufnr, count)
   })
 end
 
+local function is_completion_popup_visible()
+  if vim.fn.pumvisible() == 1 then
+    return true
+  end
+  return false
+end
+
 local function center_cursor()
+  if is_completion_popup_visible() then
+    return
+  end
   local winid = vim.api.nvim_get_current_win()
   local bufnr = vim.api.nvim_win_get_buf(winid)
 
