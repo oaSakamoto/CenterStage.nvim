@@ -11,12 +11,11 @@ function M.setup(opts)
 end
 
 function M.disable()
-  utils.clear_all_phantom_lines() -- Função a ser criada em utils
+  utils.clear_all_phantom_lines()
   vim.api.nvim_del_augroup_by_name(augroup_name)
   vim.notify('CenterStage disabled', vim.log.levels.INFO)
 end
 
--- Função para habilitar novamente (se desabilitado)
 function M.enable()
   utils.create_autocmd(augroup_name)
   vim.notify('CenterStage enabled', vim.log.levels.INFO)
