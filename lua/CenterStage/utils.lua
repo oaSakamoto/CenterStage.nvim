@@ -24,7 +24,7 @@ function M.clear_all_phantom_lines()
   end
 end
 
-local function add_phantom_lines(bufnr, start_line, count)
+local function add_phantom_lines(bufnr, count)
   if count <= 0 then
     return
   end
