@@ -177,7 +177,7 @@ function M.create_autocmd(augroup_name_param)
   vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI', 'BufWinEnter', 'WinResized' }, {
     group = center_stage_augroup,
     pattern = '*', -- Filtros são feitos dentro da callback
-    callback = center_cursor,
+    callback = vim.schedule_wrap(center_cursor),
     desc = 'CenterStage: Keep cursor centered with phantom lines at EOF',
   })
   -- Adicionar WinScrolled pode ser interessante se o usuário scrollar sem mover o cursor (mouse, C-e, C-y)
